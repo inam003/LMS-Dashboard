@@ -3,9 +3,9 @@ import React from "react";
 
 const ChangePassword = () => {
   return (
-    <div className="mt-10 mx-14">
-      <h1 className="text-[1.75rem] font-semibold">Change Password</h1>
-      <div className="bg-white my-8 px-8 py-8 w-full">
+    <div className="mt-10 mx-9 md:ml-64">
+      <h1 className="text-[1.75rem] font-semibold">Change Password (Make it Responsive)</h1>
+      <div className="bg-white my-8 px-8 py-8 w-full rounded-lg">
         <div className="flex flex-col items-center justify-center gap-3">
           <div className="flex items-center gap-5">
             <p>Old Password</p>
@@ -28,7 +28,7 @@ const ChangePassword = () => {
             />
           </div>
         </div>
-        <div className="mx-56 my-4">
+        <div className="mx-60 my-4">
           <Button className="px-6">Save</Button>
         </div>
         <div className="flex flex-col text-[#36a3f7] mt-12">

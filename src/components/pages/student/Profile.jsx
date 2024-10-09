@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 const Profile = () => {
   return (
     <div className="mt-10 mx-9 md:ml-64">
-      <h1 className="text-[1.75rem] font-medium">Student Profile</h1>
+      <h1 className="text-[1.75rem] font-medium">Student Profile (Make it Responsive)</h1>
       <div className="flex gap-8 my-12">
         <div className="p-6 bg-white shadow-[10px_10px_15px_rgba(0,0,0,0.1),0px_10px_15px_rgba(0,0,0,0.1)] border border-slate-200 w-[21rem]">
           <div className="flex flex-col gap-2">

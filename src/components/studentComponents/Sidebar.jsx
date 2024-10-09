@@ -1,45 +1,45 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import exam from "../../public/exam.png";
-import assignment from "../../public/assignment.png";
-import result from "../../public/result.png";
-import announcements from "../../public/announcement.png";
+import exam from "../../../public/exam.png";
+import assignment from "../../../public/assignment.png";
+import result from "../../../public/result.png";
+import announcements from "../../../public/announcement.png";
 import { ChartNoAxesCombined, Home, Phone } from "lucide-react";
 
 const Sidebar = () => {
   const menus = [
     {
-      path: "/dashboard",
+      path: "/StudentDashboard",
       icon: <Home className="size-4" />,
       title: "Home",
     },
     {
-      path: "coursework",
+      path: "CourseWork",
       icon: <img src={assignment} />,
       title: "Course Work",
     },
     {
-      path: "exams",
+      path: "Exams",
       icon: <img src={exam} />,
       title: "Exams",
     },
     {
-      path: "results",
+      path: "Results",
       icon: <img src={result} />,
       title: "Results",
     },
     {
-      path: "progress",
+      path: "Progress",
       icon: <ChartNoAxesCombined className="size-4" />,
       title: "Progress",
     },
     {
-      path: "announcements",
+      path: "Announcements",
       icon: <img src={announcements} />,
       title: "Announcements",
     },
     {
-      path: "contact",
+      path: "Contact",
       icon: <Phone className="size-4" />,
       title: "Contact",
     },
@@ -52,7 +52,7 @@ const Sidebar = () => {
         {menus.map((item, id) => (
           <div key={id}>
             <NavLink
-              end={item.path === "/dashboard"}
+              end={item.path === "/StudentDashboard"}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-2 my-1 text-muted-foreground transition-all hover:text-primary hover:bg-slate-100 hover:text-black ${
                   isActive ? "bg-slate-100 text-black" : ""

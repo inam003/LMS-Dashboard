@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Bell, LogOut, Menu, Settings, User } from "lucide-react";
+import { LogOut, Menu, User } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,58 +11,58 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "../ui/button";
-import logo from "../../public/logo.png";
-import defaultAvatar from "../../public/defaultAvatar.png";
+import logo from "../../../public/logo.png";
+import defaultAvatar from "../../../public/defaultAvatar.png";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import home from "../../public/home.png";
-import exam from "../../public/exam.png";
-import assignment from "../../public/assignment.png";
-import result from "../../public/result.png";
-import attendance from "../../public/attendance.png";
-import event from "../../public/event.png";
-import message from "../../public/message.png";
-import announcement from "../../public/announcement.png";
-import reset_password from "../../public/reset_password.png";
+import home from "../../../public/home.png";
+import exam from "../../../public/exam.png";
+import assignment from "../../../public/assignment.png";
+import result from "../../../public/result.png";
+import attendance from "../../../public/attendance.png";
+import event from "../../../public/event.png";
+import message from "../../../public/message.png";
+import announcement from "../../../public/announcement.png";
+import reset_password from "../../../public/reset_password.png";
 
 const Navbar = () => {
   const menus = [
     {
-      path: "/dashboard",
+      path: "/StudentDashboard",
       icon: <img src={home} />,
       title: "Home",
     },
     {
-      path: "exams",
+      path: "Exams",
       icon: <img src={exam} />,
       title: "Exams",
     },
     {
-      path: "assignments",
+      path: "Assignments",
       icon: <img src={assignment} />,
       title: "Assignments",
     },
     {
-      path: "results",
+      path: "Results",
       icon: <img src={result} />,
       title: "Results",
     },
     {
-      path: "attendance",
+      path: "Attendance",
       icon: <img src={attendance} />,
       title: "Attendance",
     },
     {
-      path: "events",
+      path: "Events",
       icon: <img src={event} />,
       title: "Events",
     },
     {
-      path: "messages",
+      path: "Messages",
       icon: <img src={message} />,
       title: "Messages",
     },
     {
-      path: "announcements",
+      path: "Announcements",
       icon: <img src={announcement} />,
       title: "Announcements",
     },
@@ -70,7 +70,7 @@ const Navbar = () => {
   return (
     <header className="bg-white fixed w-full top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
       <nav className="hidden md:flex">
-        <NavLink to="/dashboard">
+        <NavLink to="/StudentDashboard">
           <img src={logo} width={70} />
         </NavLink>
       </nav>
@@ -82,7 +82,7 @@ const Navbar = () => {
           </Button>
         </SheetTrigger>
         <SheetContent className="w-[250px] pl-2 pt-2" side="left">
-          <NavLink to="/dashboard">
+          <NavLink to="/StudentDashboard">
             <img src={logo} width={80} />
           </NavLink>
           <nav className="grid items-start px-2 py-4 text-sm font-medium lg:px-4">
@@ -120,7 +120,7 @@ const Navbar = () => {
             <DropdownMenuLabel>MUHAMMAD INAM ASLAM</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="rounded-lg cursor-pointer">
-              <Link className="flex items-center" to={"/dashboard/profile"}>
+              <Link className="flex items-center" to={"/StudentDashboard/MyProfile"}>
                 <User className="mr-2 size-4" />
                 My Profile
               </Link>
@@ -128,7 +128,7 @@ const Navbar = () => {
             <DropdownMenuItem className="rounded-lg cursor-pointer">
               <Link
                 className="flex items-center"
-                to={"/dashboard/changepassword"}
+                to={"/StudentDashboard/ChangePassword"}
               >
                 <img src={reset_password} className="mr-2 size-4" />
                 Change Password

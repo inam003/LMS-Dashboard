@@ -66,7 +66,7 @@ const CourseProgress = () => {
     <div className="mt-10 mx-9 md:ml-64">
       <Card className="w-full mx-auto">
         <CardHeader>
-          <CardTitle className="text-2xl">Course Progress</CardTitle>
+          <CardTitle className="text-2xl">Course Progress (Make it Responsive)</CardTitle>
           <CardDescription>
             Track your progress across different courses
           </CardDescription>

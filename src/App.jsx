@@ -18,11 +18,11 @@ const router = createBrowserRouter([
     element: <SignUp />,
   },
   {
-    path: "/login",
+    path: "/Login",
     element: <Login />,
   },
   {
-    path: "/dashboard",
+    path: "/StudentDashboard",
     element: <StudentsDashboard />,
 
     children: [
@@ -31,35 +31,35 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "profile",
+        path: "MyProfile",
         element: <Profile />,
       },
       {
-        path: "changepassword",
+        path: "ChangePassword",
         element: <ChangePassword />,
       },
       {
-        path: "coursework",
+        path: "CourseWork",
         element: <CourseWork />,
       },
       {
-        path: "exams",
+        path: "Exams",
         element: <Exams />,
       },
       {
-        path: "results",
+        path: "Results",
         element: <Results />,
       },
       {
-        path: "progress",
+        path: "Progress",
         element: <CourseProgress />,
       },
       {
-        path: "announcements",
+        path: "Announcements",
         element: <Announcements />,
       },
       {
-        path: "contact",
+        path: "Contact",
         element: <Contact />,
       },
     ],
