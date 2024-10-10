@@ -1,13 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import {
-  ChartNoAxesCombined,
-  Home,
-  LogOut,
-  Menu,
-  Phone,
-  User,
-} from "lucide-react";
+import { Home, LogOut, Menu, Settings, User, Users } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,19 +18,28 @@ import exam from "../../../public/exam.png";
 import assignment from "../../../public/assignment.png";
 import result from "../../../public/result.png";
 import announcements from "../../../public/announcement.png";
-import reset_password from "../../../public/reset_password.png";
 
 const Navbar = () => {
   const menus = [
     {
-      path: "/StudentDashboard",
+      path: "/TeacherDashboard",
       icon: <Home className="size-4" />,
       title: "Home",
     },
     {
-      path: "CourseWork",
+      path: "Students",
+      icon: <Users className="size-4" />,
+      title: "Students",
+    },
+    {
+      path: "Assignments",
       icon: <img src={assignment} />,
-      title: "Course Work",
+      title: "Assignments",
+    },
+    {
+      path: "Grading",
+      icon: <img src={result} />,
+      title: "Grading",
     },
     {
       path: "Exams",
@@ -45,30 +47,15 @@ const Navbar = () => {
       title: "Exams",
     },
     {
-      path: "Results",
-      icon: <img src={result} />,
-      title: "Results",
-    },
-    {
-      path: "Progress",
-      icon: <ChartNoAxesCombined className="size-4" />,
-      title: "Progress",
-    },
-    {
       path: "Announcements",
       icon: <img src={announcements} />,
       title: "Announcements",
-    },
-    {
-      path: "Contact",
-      icon: <Phone className="size-4" />,
-      title: "Contact",
     },
   ];
   return (
     <header className="bg-white fixed w-full top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 z-50">
       <nav className="hidden md:flex">
-        <NavLink to="/StudentDashboard">
+        <NavLink to="/TeacherDashboard">
           <img src={logo} width={70} />
         </NavLink>
       </nav>
@@ -80,7 +67,7 @@ const Navbar = () => {
           </Button>
         </SheetTrigger>
         <SheetContent className="w-[250px] pl-2 pt-2" side="left">
-          <NavLink to="/StudentDashboard">
+          <NavLink to="/TeacherDashboard">
             <img src={logo} width={80} />
           </NavLink>
           <nav className="grid items-start px-2 py-4 text-sm font-medium lg:px-4">
@@ -98,11 +85,10 @@ const Navbar = () => {
           </nav>
         </SheetContent>
       </Sheet>
-      <div className="flex w-full items-center gap-4 md:ml-auto lg:gap-6">
-        <div className="ml-auto flex items-center gap-4 flex-1 sm:flex-initial">
-          <div className="relative hidden md:flex md:flex-col">
-            <p className="text-sm">MUHAMMAD INAM ASLAM</p>
-            <p className="text-xs">(bc110101103)</p>
+      <div className="flex w-full items-center gap-4 md:ml-auto">
+        <div className="ml-auto flex items-center flex-1 sm:flex-initial">
+          <div className="relative hidden md:flex">
+            <p className="font-semibold">Prof Muhammad Inam Aslam</p>{" "}
           </div>
         </div>
         <DropdownMenu>
@@ -115,12 +101,12 @@ const Navbar = () => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-44">
-            <DropdownMenuLabel>MUHAMMAD INAM ASLAM</DropdownMenuLabel>
+            <DropdownMenuLabel>Prof Muhammad Inam Aslam</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="rounded-lg cursor-pointer">
               <Link
                 className="flex items-center"
-                to={"/StudentDashboard/MyProfile"}
+                to={"/TeacherDashboard/MyProfile"}
               >
                 <User className="mr-2 size-4" />
                 My Profile
@@ -129,10 +115,10 @@ const Navbar = () => {
             <DropdownMenuItem className="rounded-lg cursor-pointer">
               <Link
                 className="flex items-center"
-                to={"/StudentDashboard/ChangePassword"}
+                to={"/TeacherDashboard/Settings"}
               >
-                <img src={reset_password} className="mr-2 size-4" />
-                Change Password
+                <Settings className="mr-2 size-4" />
+                Settings
               </Link>
             </DropdownMenuItem>
             <DropdownMenuSeparator />

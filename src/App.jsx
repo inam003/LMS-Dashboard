@@ -11,6 +11,15 @@ import ChangePassword from "./components/pages/student/ChangePassword";
 import CourseProgress from "./components/pages/student/CourseProgress";
 import Announcements from "./components/pages/student/Announcements";
 import Contact from "./components/pages/student/Contact";
+import TeachersDashboard from "./dashboard/TeachersDashboard";
+import TeacherHome from "./components/pages/teacher/TeacherHome";
+import Students from "./components/pages/teacher/Students";
+import TeacherAssignments from "./components/pages/teacher/TeacherAssignments";
+import Grading from "./components/pages/teacher/Grading";
+import TeacherExams from "./components/pages/teacher/TeacherExams";
+import TeacherAnnouncements from "./components/pages/teacher/TeacherAnnouncements";
+import TeacherProfile from "./components/pages/teacher/TeacherProfile";
+import Settings from "./components/pages/teacher/Settings";
 
 const router = createBrowserRouter([
   {
@@ -64,12 +73,47 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/TeacherDashboard",
+    element: <TeachersDashboard />,
+
+    children: [
+      {
+        path: "",
+        element: <TeacherHome />,
+      },
+      {
+        path: "MyProfile",
+        element: <TeacherProfile />,
+      },
+      {
+        path: "Settings",
+        element: <Settings />,
+      },
+      {
+        path: "Students",
+        element: <Students />,
+      },
+      {
+        path: "Assignments",
+        element: <TeacherAssignments />,
+      },
+      {
+        path: "Grading",
+        element: <Grading />,
+      },
+      {
+        path: "Exams",
+        element: <TeacherExams />,
+      },
+      {
+        path: "Announcements",
+        element: <TeacherAnnouncements />,
+      },
+    ],
+  },
 ]);
 
 export default function App() {
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }

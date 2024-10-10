@@ -4,19 +4,29 @@ import exam from "../../../public/exam.png";
 import assignment from "../../../public/assignment.png";
 import result from "../../../public/result.png";
 import announcements from "../../../public/announcement.png";
-import { ChartNoAxesCombined, Home, Phone } from "lucide-react";
+import { Home, Users } from "lucide-react";
 
 const Sidebar = () => {
   const menus = [
     {
-      path: "/StudentDashboard",
+      path: "/TeacherDashboard",
       icon: <Home className="size-4" />,
       title: "Home",
     },
     {
-      path: "CourseWork",
+      path: "Students",
+      icon: <Users className="size-4" />,
+      title: "Students",
+    },
+    {
+      path: "Assignments",
       icon: <img src={assignment} />,
-      title: "Course Work",
+      title: "Assignments",
+    },
+    {
+      path: "Grading",
+      icon: <img src={result} />,
+      title: "Grading",
     },
     {
       path: "Exams",
@@ -24,24 +34,9 @@ const Sidebar = () => {
       title: "Exams",
     },
     {
-      path: "Results",
-      icon: <img src={result} />,
-      title: "Results",
-    },
-    {
-      path: "Progress",
-      icon: <ChartNoAxesCombined className="size-4" />,
-      title: "Progress",
-    },
-    {
       path: "Announcements",
       icon: <img src={announcements} />,
       title: "Announcements",
-    },
-    {
-      path: "Contact",
-      icon: <Phone className="size-4" />,
-      title: "Contact",
     },
   ];
   // bg-[#c0c1d6]
@@ -52,7 +47,7 @@ const Sidebar = () => {
         {menus.map((item, id) => (
           <div key={id}>
             <NavLink
-              end={item.path === "/StudentDashboard"}
+              end={item.path === "/TeacherDashboard"}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-2 my-1 text-muted-foreground transition-all hover:text-primary hover:bg-slate-200 hover:text-black ${
                   isActive ? "bg-slate-200 text-black" : ""
