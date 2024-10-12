@@ -3,36 +3,34 @@ import { useState } from "react";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
+  CardDescription,
   CardTitle,
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Calendar } from "@/components/ui/calendar";
 import {
-  Bell,
-  Search,
   Book,
   Users,
   FileText,
   Calendar as CalendarIcon,
-  CheckCircle2,
   PlusCircle,
   Megaphone,
   Video,
   Clock,
   MessageCircle,
   ChevronRight,
+  BarChart,
 } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Progress } from "@/components/ui/progress";
 
 const quickStats = [
-  { title: "Active Courses", value: 4, icon: Book },
-  { title: "Total Students", value: 120, icon: Users },
-  { title: "Pending Assignments", value: 15, icon: FileText },
+  { title: "Total Students", value: 30, icon: Users },
+  { title: "Assignments", value: 5, icon: FileText },
   { title: "Upcoming Exams", value: 2, icon: CalendarIcon },
+  { title: "Course Progress", value: "65%", icon: BarChart },
 ];
 
 const upcomingDeadlines = [
@@ -41,11 +39,36 @@ const upcomingDeadlines = [
   { title: "CS303 Quiz", date: "2023-06-30", urgent: false },
 ];
 
-const quickActions = [
-  { title: "Create Assignment", icon: PlusCircle },
-  { title: "Post Announcement", icon: Megaphone },
-  { title: "Schedule Office Hours", icon: Calendar },
-  { title: "Start Video Conference", icon: Video },
+const course = {
+  id: "CS101",
+  name: "Introduction to Computer Science",
+  students: 30,
+  progress: 65,
+  description:
+    "This course provides an introduction to the fundamental concepts of computer science, including programming, algorithms, and data structures.",
+  nextLecture: "Data Types and Variables",
+  nextLectureDate: "2024-10-12",
+};
+
+const recentActivities = [
+  {
+    user: "John Doe",
+    action: "submitted assignment",
+    course: "CS101",
+    time: "2 hours ago",
+  },
+  {
+    user: "Jane Smith",
+    action: "asked a question",
+    course: "CS202",
+    time: "4 hours ago",
+  },
+  {
+    user: "Mike Johnson",
+    action: "viewed lecture notes",
+    course: "CS303",
+    time: "1 day ago",
+  },
 ];
 
 const recentMessages = [
@@ -67,41 +90,29 @@ const recentMessages = [
 ];
 
 const calendarEvents = [
-  { date: new Date(2023, 5, 20), title: "CS101 Midterm" },
-  { date: new Date(2023, 5, 25), title: "CS202 Project Due" },
-  { date: new Date(2023, 5, 30), title: "CS303 Quiz" },
+  { date: new Date(2024, 9, 10), title: "CS101 Midterm" },
+  { date: new Date(2024, 9, 10), title: "CS202 Project Due" },
+  { date: new Date(2024, 9, 10), title: "CS303 Quiz" },
 ];
 
 const TeacherHome = () => {
-  const [selectedDate, setSelectedDate] =
-    (useState < new Date()) | (undefined > new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const todaysEvents = calendarEvents.filter(
     (event) => event.date.toDateString() === selectedDate?.toDateString()
   );
   return (
     <div className="mt-10 mx-9 md:ml-64">
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto pb-6">
         <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 space-y-4 sm:space-y-0">
           <div className="flex items-center space-x-4">
-            <Avatar className="h-12 w-12">
-              <AvatarImage src="/placeholder-avatar.jpg" alt="Teacher" />
-              <AvatarFallback>TC</AvatarFallback>
-            </Avatar>
             <div>
-              <h1 className="text-2xl font-bold">Welcome, Dr. Smith</h1>
+              <h1 className="text-2xl font-bold">
+                Welcome, Prof Muhammad Inam Aslam
+              </h1>
               <p className="text-gray-500">
                 Today is {new Date().toLocaleDateString()}
               </p>
-            </div>
-          </div>
-          <div className="flex items-center space-x-4 w-full sm:w-auto">
-            <Button variant="outline" size="icon">
-              <Bell className="h-4 w-4" />
-            </Button>
-            <div className="relative flex-grow sm:flex-grow-0">
-              <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500" />
-              <Input className="pl-8 w-full" placeholder="Search..." />
             </div>
           </div>
         </header>
@@ -123,6 +134,43 @@ const TeacherHome = () => {
                 </Card>
               ))}
             </div>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Course Overview: {course.id}</CardTitle>
+                <CardDescription>{course.name}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <p className="text-sm text-muted-foreground">
+                    {course.description}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium">Total Students</span>
+                    <Badge variant="outline">{course.students}</Badge>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center text-sm">
+                      <span>Course Progress</span>
+                      <span className="font-medium">{course.progress}%</span>
+                    </div>
+                    <Progress value={course.progress} className="w-full" />
+                  </div>
+                  <div className="pt-2">
+                    <p className="text-sm font-medium">
+                      Next Lecture: {course.nextLecture}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      Date: {course.nextLectureDate}
+                    </p>
+                  </div>
+                  <Button className="w-full">
+                    View Course Details
+                    <ChevronRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
 
             <Card>
               <CardHeader>
@@ -152,21 +200,44 @@ const TeacherHome = () => {
 
             <Card>
               <CardHeader>
-                <CardTitle>Quick Actions</CardTitle>
+                <CardTitle>Recent Activity</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 gap-4">
-                  {quickActions.map((action, index) => (
-                    <Button
-                      key={index}
-                      variant="outline"
-                      className="h-20 flex flex-col items-center justify-center"
-                    >
-                      <action.icon className="h-6 w-6 mb-2" />
-                      <span>{action.title}</span>
-                    </Button>
+                <ul className="space-y-4">
+                  {recentActivities.map((activity, index) => (
+                    <li key={index} className="flex items-start space-x-4">
+                      <Avatar className="mt-0.5">
+                        <AvatarImage
+                          src={`https://api.dicebear.com/6.x/initials/svg?seed=${activity.user}`}
+                          alt={activity.user}
+                        />
+                        <AvatarFallback>
+                          {activity.user
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex-1 space-y-1">
+                        <p className="text-sm font-medium leading-none">
+                          {activity.user}{" "}
+                          <span className="text-muted-foreground">
+                            {activity.action}
+                          </span>
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {activity.course}
+                        </p>
+                        <div className="flex items-center pt-2">
+                          <Clock className="mr-2 h-3 w-3 opacity-70" />{" "}
+                          <span className="text-xs text-muted-foreground">
+                            {activity.time}
+                          </span>
+                        </div>
+                      </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </CardContent>
             </Card>
           </div>
