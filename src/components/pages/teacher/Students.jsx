@@ -173,14 +173,6 @@ const recentActivities = [
   },
 ];
 
-const gradeDistribution = [
-  { grade: "A", count: 10 },
-  { grade: "B", count: 15 },
-  { grade: "C", count: 8 },
-  { grade: "D", count: 4 },
-  { grade: "F", count: 2 },
-];
-
 const columns = [
   {
     accessorKey: "name",

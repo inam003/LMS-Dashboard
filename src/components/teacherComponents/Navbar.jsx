@@ -32,19 +32,24 @@ const Navbar = () => {
       title: "Students",
     },
     {
+      path: "Quizzes",
+      icon: <img src={assignment} />,
+      title: "Quizzes",
+    },
+    {
       path: "Assignments",
       icon: <img src={assignment} />,
       title: "Assignments",
     },
     {
-      path: "Grading",
-      icon: <img src={result} />,
-      title: "Grading",
-    },
-    {
       path: "Exams",
       icon: <img src={exam} />,
       title: "Exams",
+    },
+    {
+      path: "Grading",
+      icon: <img src={result} />,
+      title: "Grading",
     },
     {
       path: "Announcements",

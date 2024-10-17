@@ -20,6 +20,7 @@ import TeacherExams from "./components/pages/teacher/TeacherExams";
 import TeacherAnnouncements from "./components/pages/teacher/TeacherAnnouncements";
 import TeacherProfile from "./components/pages/teacher/TeacherProfile";
 import Settings from "./components/pages/teacher/Settings";
+import Quizzes from "./components/pages/teacher/Quizzes";
 
 const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
       {
         path: "Students",
         element: <Students />,
+      },
+      {
+        path: "Quizzes",
+        element: <Quizzes />,
       },
       {
         path: "Assignments",

@@ -63,10 +63,19 @@ const DataTable = ({ columns, data, onRowClick }) => {
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                   onClick={() => onRowClick && onRowClick(row.original)}
-                  className="cursor-pointer"
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell
+                      key={cell.id}
+                      className={
+                        cell.column.columnDef.accessorKey === "currentGrade"
+                          ? "px-16" // Custom padding of 30px
+                          : cell.column.columnDef.accessorKey ===
+                            "attendanceRate"
+                          ? "px-7" // Custom padding of 28px for attendance column
+                          : ""
+                      }
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
