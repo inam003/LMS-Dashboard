@@ -245,9 +245,9 @@ const Quizzes = () => {
         return (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="size-8 p-0">
+              <Button variant="ghost" className="h-8 w-8 p-0">
                 <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
+                <MoreHorizontal className="size-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
@@ -257,7 +257,7 @@ const Quizzes = () => {
                 onClick={() => handleEditQuiz(quiz.id)}
               >
                 <div className="flex items-center">
-                  <Edit className="size-4 ml-2" />
+                  <Edit className="size-4 mr-2" />
                   Edit
                 </div>
               </DropdownMenuItem>
@@ -267,7 +267,7 @@ const Quizzes = () => {
                 onClick={() => handleDeleteQuiz(quiz.id)}
               >
                 <div className="flex items-center hover:text-red-500">
-                  <TrashIcon className="size-4 ml-2" />
+                  <TrashIcon className="size-4 mr-2" />
                   <span>Delete</span>
                 </div>
               </DropdownMenuItem>
