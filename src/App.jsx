@@ -21,6 +21,7 @@ import TeacherAnnouncements from "./components/pages/teacher/TeacherAnnouncement
 import TeacherProfile from "./components/pages/teacher/TeacherProfile";
 import Settings from "./components/pages/teacher/Settings";
 import Quizzes from "./components/pages/teacher/Quizzes";
+import AdminDashboard from "./dashboard/AdminDashboard";
 
 const router = createBrowserRouter([
   {
@@ -117,6 +118,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/AdminDashboard",
+    element: <AdminDashboard />
+  }
 ]);
 
 export default function App() {
