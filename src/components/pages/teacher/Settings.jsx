@@ -37,10 +37,8 @@ const Settings = () => {
   };
 
   const togglePasswordVisibility = () => {
-    console.log("Button clicked"); // Check if this logs in the console
     setShowPassword(!showPassword);
   };
-  
 
   return (
     <div className="my-10 mx-9 md:ml-64">
@@ -77,13 +75,13 @@ const Settings = () => {
                     type="button"
                     variant="ghost"
                     size="icon"
-                    className="absolute right-2 top-1/2 -translate-y-1/2"
+                    className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                     onClick={togglePasswordVisibility}
                   >
                     {showPassword ? (
-                      <EyeIcon className="size-4" />
+                      <EyeOffIcon className="h-4 w-4" />
                     ) : (
-                      <EyeOffIcon className="size-4" />
+                      <EyeIcon className="h-4 w-4" />
                     )}
                     <span className="sr-only">
                       {showPassword ? "Hide password" : "Show password"}

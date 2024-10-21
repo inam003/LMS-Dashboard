@@ -22,6 +22,7 @@ import TeacherProfile from "./components/pages/teacher/TeacherProfile";
 import Settings from "./components/pages/teacher/Settings";
 import Quizzes from "./components/pages/teacher/Quizzes";
 import AdminDashboard from "./dashboard/AdminDashboard";
+import AdminHome from "./components/pages/admin/AdminHome";
 
 const router = createBrowserRouter([
   {
@@ -120,7 +121,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/AdminDashboard",
-    element: <AdminDashboard />
+    element: <AdminDashboard />,
+
+    children: [
+      {
+        path: "",
+        element: <AdminHome />
+      }
+    ]
   }
 ]);
 
